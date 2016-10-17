@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>demo</title>
+  <meta charset="utf-8">
+  <!-- <script type="text/javascript" src="./axios.min.js"></script> -->
+  <script type="text/javascript" src="./jquery-3.1.0.js"></script>
+  <script type="text/javascript" src="./api.js"></script>
+  <style type="text/css">
+    #test a {
+      display: block;
+      padding: 5px;
+      color: #ffa726;
+    }
+  </style>
+</head>
+<body>
+  <div id="test">
+    <a href="javascript:;" title="getItem">getItem</a>
+    <a href="javascript:;" title="bulkDeleteItems">bulkDeleteItems</a>
+    <a href="javascript:;" title="createItem">createItem</a>
+    <a href="javascript:;" title="deleteItem">deleteItem</a>
+    <a href="javascript:;" title="findItems">findItems</a>
+    <a href="javascript:;" title="statItems">statItems</a>
+    <a href="javascript:;" title="updateItem">updateItem</a>
+    <a href="javascript:;" title="followItem">followItem</a>
+
+    <a href="javascript:;" title="unFollowItem">unFollowItem</a>
+    <a href="javascript:;" title="getItemFollower">getItemFollower</a>
+    <a href="javascript:;" title="getApp">getApp</a>
+    <a href="javascript:;" title="deleteApp">deleteApp</a>
+    <a href="javascript:;" title="getApps">getApps</a>
+    <a href="javascript:;" title="updateApp">updateApp</a>
+    <a href="javascript:;" title="createComment">createComment</a>
+    <a href="javascript:;" title="deleteComment">deleteComment</a>
+    <a href="javascript:;" title="getItemComments">getItemComments</a>
+
+    <a href="javascript:;" title="getAllNG">getAllNG</a>
+    <a href="javascript:;" title="getAllReadNG">getAllReadNG</a>
+    <a href="javascript:;" title="getAllUnreadNG">getAllUnreadNG</a>
+    <a href="javascript:;" title="setNGRead">setNGRead</a>
+    <a href="javascript:;" title="createNotification">createNotification</a>
+    <a href="javascript:;" title="getReadNotificationInGroup">getReadNotificationInGroup</a>
+    <a href="javascript:;" title="getUnreadNotificationInGroup">getUnreadNotificationInGroup</a>
+    <a href="javascript:;" title="setAllNotificationRead">setAllNotificationRead</a>
+
+    <a href="javascript:;" title="createShare">createShare</a>
+    <a href="javascript:;" title="getShares">getShares</a>
+    <a href="javascript:;" title="getSpaceAllMembers">getSpaceAllMembers</a>
+    <a href="javascript:;" title="getStreams">getStreams</a>
+    <a href="javascript:;" title="createTable">createTable</a>
+    <a href="javascript:;" title="getTable">getTable</a>
+    <a href="javascript:;" title="getAllTableInSpace">getAllTableInSpace</a>
+    <a href="javascript:;" title="updateTable">updateTable</a>
+
+  </div>
+  <form>
+    <input type="file" id="upload"></input>
+  </form>
+  <script type="text/javascript">
+
+    var ele = document.getElementById('test')
+
+    var uploadEle = document.getElementById('upload')
+
+    function log(data) {
+      console.log(data)
+    }
+
+    HB.api.init('Authorization',"Bearer r38MBx1yTQUC53louD5FlLinml06JakBIGDJnpeY001")
+
+    ele.onclick = function(evt) {
+
+      if (evt.target.getAttribute('title') == 'getItem') {
+        HB.api.getItem({
+          item_id: 43998933
+        }, log, log)
+      }
+
+      if (evt.target.getAttribute('title') == 'bulkDeleteItems') {
+        HB.api.bulkDeleteItems({
+          table_id: 2091524,
+          itemIds: [42915009, 42915006, 42914994, 42914890, 41076293]
+        }, log, log)
+      }
+
+      if (evt.target.getAttribute('title') == 'createItem') {
+        HB.api.createItem({
+          table_id: 2091634,
+          fields: {
+            11824268: "qweerrr"
+          }
+          }, log, log)
+      }
+
+      if (evt.target.getAttribute('title') == 'deleteItem') {
+        HB.api.deleteItem({
+          item_id: 42982968
+        }, log, log)
+      }
+
+      if (evt.target.getAttribute('title') == 'findItems') {
+        HB.api.findItems({
+          table_id: 2091524
+        }, log, log)
+      }
+
+      if (evt.target.getAttribute('title') == 'statItems') {
+        HB.api.statItems({
+          table_id: 2091524,
+          "select": [
+            {
+              "field": 11823063,
+              "aggregation": "sum",
+              "as": "select1"
+            }
+          ]
+        }, log, log)
+      }
+
+      if (evt.target.getAttribute('title') == 'updateItem') {
+        HB.api.updateItem({
+          item_id: 43998933,
+          "fields": {
+            "11823063": "今天notnot是个好日子"
+          }
+        }, log, log)
+      }
+
+     if (evt.target.getAttribute('title') == 'followItem') {
+        HB.api.followItem({
+          item_id: 43998933
+        }, log, log)
+      }
+
+      if (evt.target.getAttribute('title') == 'unFollowItem') {
+        HB.api.unFollowItem({
+          item_id: 43998933
+        }, log, log)
+      }
+
+      if (evt.target.getAttribute('title') == 'getItemFollower') {
+        HB.api.getItemFollower({
+          item_id: 43998933
+        }, log, log)
+      }
+
+      if (evt.target.getAttribute('title') == 'getApp') {
+        HB.api.getApp({
+          app_id: 1798174
+        }, log, log)
+      }
+
+      if (evt.target.getAttribute('title') == 'deleteApp') {
+         HB.api.deleteApp({
+          app_id:1798172
+        }, log, log)
+      }
+
+      if (evt.target.getAttribute('title') == 'getApps') {
+        HB.api.getApps({
+          table_id: 2091524
+        },log, log)
+      }
+
+      if (evt.target.getAttribute('title') == 'updateApp') {
+        HB.api.updateApp({
+          app_id: 1798174,
+          status: 'enable'
+        }, log, log)
+      }
+
+      if (evt.target.getAttribute('title') == 'createComment') {
+        HB.api.createComment({
+          item_id: 43998933,
+          content: 12345
+        }, log, log)
+      }
+
+      if (evt.target.getAttribute('title') == 'deleteComment') {
+        HB.api.deleteComment({
+          comment_id: 42995621
+        }, log, log)
+      }
+
+      if (evt.target.getAttribute('title') == 'getItemComments') {
+        HB.api.getItemComments({
+          item_id: 43998933
+        }, log, log)
+      }
+
+      if (evt.target.getAttribute('title') == 'getAllNG') {
+        HB.api.getAllNG({},log,log)
+      }
+
+      if (evt.target.getAttribute('title') == 'getAllReadNG') {
+        HB.api.getAllReadNG({}.log, log)
+      }
+
+      if (evt.target.getAttribute('title') == 'getAllUnreadNG') {
+        HB.api.getAllUnreadNG({},log, log)
+      }
+
+      if (evt.target.getAttribute('title') == 'setNGRead') {
+        HB.api.setNGRead({
+          notification_group_id: 26788728
+        }, log, log)
+      }
+
+      if (evt.target.getAttribute('title') == 'countAllUnreadNum') {
+        HB.api.countAllUnreadNum(log, log)
+      }
+
+      if (evt.target.getAttribute('title') == 'createNotification') {
+        HB.api.createNotification({
+          "receiver_id": 1215608,
+          "push_message": "某某某 创建了一项任务",
+          "title": "某某某 创建了一项任务",
+          "content": "任务内容: 某某某 去完成一项工作",
+          "open_url": "\/item\/11001"
+        }, log, log)
+      }
+
+      if (evt.target.getAttribute('title') == 'getReadNotificationInGroup') {
+         HB.api.getReadNotificationInGroup({
+          notification_group_id: 26788728
+         }, log, log)
+      }
+
+      if (evt.target.getAttribute('title') == 'getUnreadNotificationInGroup') {
+        HB.api.getUnreadNotificationInGroup({
+          notification_group_id: 26788728
+        }, log, log)
+      }
+
+      if (evt.target.getAttribute('title') == 'setAllNotificationRead') {
+        HB.api.setAllNotificationRead(log, log)
+      }
+
+      if (evt.target.getAttribute('title') == 'createShare') {
+        HB.api.createShare({
+          ref_type: 'table',
+          ref_id: 2091524,
+          scope: {
+            "where": {
+              "and": [
+                    {
+                      "field": 10111709,
+                      "query": {
+                        "eq": 200
+                      }
+                    }
+                ]
+              },
+              "fields": {
+                  "view": {
+                    "is_all": true,
+                    "fields": []
+                  },
+                  "update": {
+                    "is_all": false,
+                    "fields": [
+                      10111709,
+                      10111708
+                    ]
+                  }
+              }
+            }
+        }, log, log)
+      }
+
+      if (evt.target.getAttribute('title') == 'getShares') {
+         HB.api.getShares({
+          ref_type: 'table',
+          ref_id: 2091524
+        }, log, log)
+      }
+
+     if (evt.target.getAttribute('title') == 'getSpaceAllMembers') {
+        HB.api.getSpaceAllMembers({
+          space_id: 1384287
+        }, log, log)
+      }
+
+     if (evt.target.getAttribute('title') == 'getStreams') {
+        HB.api.getStreams({
+          item_id: 43998192
+        }, log, log)
+      }
+
+      if (evt.target.getAttribute('title') == 'createTable') {
+        var randomStr = Math.random().toString(36).substring(7) //创建表格时，field_id随机,占位符
+        HB.api.createTable({
+          "name": "新建表格展示" + Math.floor(Math.random()*10),
+          "item_name": "记录",
+          "space_id": 1384287,
+          "icon": {
+              "id": "60f",
+              "color": "e",
+              "rgb": "#9CCC65"
+          },
+          "field_layout": [
+            randomStr
+          ],
+          list_layout: [
+            randomStr
+          ],
+          "fields": [
+              {
+                  "field_id": randomStr,
+                  "type": "text",
+                  "name": "标题",
+                  "description": "",
+                  "unique": false,
+                  "required": false,
+                  "default_setting": {
+                      "value": ""
+                  },
+                  "config": {
+                      "type": "input"
+                  },
+                  "range": null,
+                  "is_attach_field": false,
+                  "attach_relation_field": null,
+                  "include_attach_field_ids": [ ],
+                  "app_id": 0,
+                  "application_alias": null,
+                  "lock": {
+                      "update": 0,
+                      "delete": 0,
+                      "item_update": 0
+                  },
+                  "allow_update": true
+              }
+          ]
+        }, log, log)
+      }
+
+      if (evt.target.getAttribute('title') == 'getTable') {
+        HB.api.getTable({
+          table_id: 2091524
+        }, log, log)
+      }
+
+      if (evt.target.getAttribute('title') == 'getAllTableInSpace') {
+        HB.api.getAllTableInSpace({
+          space_id: 1384287
+        }, log, log)
+      }
+
+      if (evt.target.getAttribute('title') == 'getAllTableInSpace') {
+        HB.api.updateTable({
+          "table_id": 2091634,
+          "name": "新建表格展示8",
+          "item_name": "记录",
+          "icon": {
+            "id": "60f",
+            "color": "e",
+            "rgb": "#9CCC65"
+          },
+          "field_layout": [
+            11824268
+          ],
+          "list_layout": [
+            11824268
+          ],
+          "fields": [
+              {
+                "field_id": 11824268,
+                "table_id": 2091634,
+                "type": "text",
+                "name": "标题",
+                "description": "",
+                "unique": false,
+                "required": false,
+                "default_setting": {
+                    "value": ""
+                },
+                "config": {
+                    "type": "input"
+                },
+                "range": null,
+                "is_attach_field": false,
+                "attach_relation_field": null,
+                "include_attach_field_ids": [ ],
+                "app_id": 0,
+                "application_alias": "",
+                "lock": {
+                    "update": 0,
+                    "delete": 0,
+                    "item_update": 0
+                },
+                "allow_update": true
+              }
+          ]}, log, log)
+        }
+      }
+
+    uploadEle.onchange = function(evt) {
+      HB.api.uploadFile({
+        name: 1234,
+        file: evt.target.files[0]
+      }, log, log)
+    }
+  </script>
+</body>
+</html>
