@@ -15,7 +15,7 @@ Huoban api sdk for JavaScript是伙伴云表格为第三方开发者提供的Jav
 ## 快速使用
 
 ### 提供接口
-- HB.component对象
+- HB.api对象
 
 
 ### HB.component初始化，获得权限
