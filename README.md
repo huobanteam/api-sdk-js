@@ -27,7 +27,7 @@ HB.api.init([tickteName], ticket)
 
 ### 返回结果处理
 
-HB.component提供的接口返回返回数据分为两种：
+HB.api提供的接口返回返回数据分为两种：
 
 * Delete类接口，接口返回null，如果没有Error，即可认为操作成功
 * Put，Get，Post类接口，接口返回对应的数据，如果没有Error，即可认为操作成功。
