@@ -2,7 +2,7 @@
 
 ## 概述
 
-Huoban api sdk for JavaScript是伙伴云表格为第三方开发者提供的JavaScript sdk包。开发者可以同过该sdk包进行简单的api调用请求。
+Huoban api sdk for JavaScript是伙伴云表格为第三方开发者提供的JavaScript sdk包。开发者可以通过该sdk包进行简单的api调用请求。
 
 
 ## 运行环境
